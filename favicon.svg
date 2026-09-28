@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="习惯打卡小工具">
+  <defs>
+    <mask id="crescent">
+      <rect width="32" height="32" fill="#ffffff"/>
+      <circle cx="22" cy="15" r="10" fill="#000000"/>
+    </mask>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#e7f0fd"/>
+  <circle cx="15" cy="16" r="11.5" fill="#7cb2e8" mask="url(#crescent)"/>
+  <circle cx="23.5" cy="8.5" r="1.7" fill="#a9cdf2"/>
+  <circle cx="27" cy="13.5" r="1.1" fill="#bcd9f6"/>
+  <circle cx="21" cy="24" r="1.1" fill="#bcd9f6"/>
+</svg>

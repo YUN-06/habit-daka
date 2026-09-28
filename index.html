@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一个简单的习惯打卡小工具，每天点一下勾，看到自己坚持了多久。">
+  <meta name="theme-color" content="#e7f0fd">
+  <meta name="color-scheme" content="light">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="习惯打卡小工具">
+  <meta property="og:description" content="每天点一下勾，看到自己坚持了多久。">
+  <meta name="twitter:card" content="summary">
+  <title>习惯打卡小工具</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="card hero" id="heroCard">
+      <div class="hero__sky" aria-hidden="true">
+        <span class="sky-moon"></span>
+        <span class="sky-star sky-star--1"></span>
+        <span class="sky-star sky-star--2"></span>
+        <span class="sky-star sky-star--3"></span>
+        <span class="sky-star sky-star--4"></span>
+        <span class="sky-star sky-star--5"></span>
+      </div>
+      <p class="hero__date" id="todayLabel">—</p>
+      <h1 class="hero__title">今天，坚持一点点</h1>
+      <p class="hero__count" aria-live="polite">
+        <span class="hero__num" id="doneCount">0</span>
+        <span class="hero__slash">/</span>
+        <span class="hero__num hero__num--total" id="totalCount">0</span>
+        <span class="hero__unit">项已完成</span>
+      </p>
+      <div class="progress" id="progressBar" role="progressbar"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="今日完成进度">
+        <div class="progress__fill" id="progressFill"></div>
+      </div>
+      <p class="hero__cheer" id="cheerText" hidden></p>
+    </header>
+
+    <section class="card week-card" id="weekCard" aria-label="本周完成情况">
+      <h2 class="card__title">本周完成情况</h2>
+      <div class="week-progress-row" id="weekProgressRow">
+        <div class="week-progress" id="weekProgress" role="progressbar"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="本周完成进度">
+          <div class="week-progress__fill" id="weekProgressFill"></div>
+        </div>
+        <p class="week-card__rate" id="weekRate">—</p>
+      </div>
+      <ul class="weekbars" id="weekBars"></ul>
+      <p class="week-card__meta" id="weekMeta" hidden></p>
+      <p class="history-hint" id="weekHint">添加习惯后，这里会显示本周每天的完成情况。</p>
+    </section>
+
+    <section class="card" aria-label="习惯列表">
+      <form class="add-form" id="addForm" autocomplete="off" novalidate>
+        <label class="sr-only" for="habitInput">添加习惯</label>
+        <input class="add-form__input" id="habitInput" type="text" maxlength="20"
+               placeholder="添加一个想坚持的习惯，比如：喝水" aria-describedby="addHint">
+        <button class="btn btn--primary" type="submit">添加</button>
+      </form>
+      <p class="sr-only" id="addHint">输入习惯名称后按回车或点击添加按钮，最多 20 个字。</p>
+
+      <ul class="habit-list" id="habitList"></ul>
+      <p class="empty" id="emptyState">还没有习惯，先在上面添加一个吧 ⭐</p>
+    </section>
+
+    <section class="card" id="historyCard" aria-label="最近七天完成情况">
+      <h2 class="card__title">最近 7 天</h2>
+      <ul class="week" id="weekChart"></ul>
+      <p class="history-hint" id="historyHint">添加习惯后，这里会显示最近 7 天的完成情况。</p>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
